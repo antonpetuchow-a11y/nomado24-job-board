@@ -1,0 +1,14 @@
+# Ignore everything except the client folder
+*
+!client/
+!client/**
+
+# Ignore node_modules and other unnecessary files
+node_modules/
+server/
+.git/
+.DS_Store
+*.log
+.env
+.env.local
+.env.production 
