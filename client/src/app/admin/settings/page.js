@@ -4,6 +4,7 @@ import { useAuth } from '../../../utils/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { API_ENDPOINTS } from '../../../config/api';
 import { 
   Settings, 
   ArrowLeft,
@@ -80,7 +81,7 @@ export default function AdminSettingsPage() {
 
   const fetchSettings = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/admin/settings', {
+      const response = await fetch(`${API_ENDPOINTS.admin}/settings`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -99,7 +100,7 @@ export default function AdminSettingsPage() {
   const handleSaveSettings = async () => {
     setSaving(true);
     try {
-      const response = await fetch('http://localhost:5001/api/admin/settings', {
+      const response = await fetch(`${API_ENDPOINTS.admin}/settings`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
