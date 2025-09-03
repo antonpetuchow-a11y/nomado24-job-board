@@ -6,7 +6,7 @@
 echo "🚀 Starting Google Cloud Deployment for Nomado24 Job Board..."
 
 # Set your project ID (replace with your actual project ID)
-PROJECT_ID="your-google-cloud-project-id"
+PROJECT_ID="omega-healer-468211-n2"
 REGION="europe-west1"
 SERVICE_NAME="nomado24-backend"
 
