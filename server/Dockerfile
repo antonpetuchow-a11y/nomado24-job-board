@@ -1,4 +1,4 @@
-# Use Node.js 18 Alpine for smaller image size
+# Use Node.js 18 Alpine
 FROM node:18-alpine
 
 # Set working directory
@@ -7,17 +7,14 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies (ohne Prisma)
 RUN npm install --omit=dev
 
 # Copy source code
 COPY . .
 
-# Generate Prisma client
-RUN npx prisma generate
-
-# Expose port
+# Expose port 5001 (wichtig für Cloud Run)
 EXPOSE 5001
 
 # Start the application
-CMD ["npm", "start"]
+CMD ["node", "src/index.js"]
