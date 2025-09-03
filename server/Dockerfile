@@ -7,13 +7,13 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies (ohne Prisma)
-RUN npm install --omit=dev
+# Install only express
+RUN npm install express
 
 # Copy source code
 COPY . .
 
-# Expose port 5001 (wichtig für Cloud Run)
+# Expose port
 EXPOSE 5001
 
 # Start the application
